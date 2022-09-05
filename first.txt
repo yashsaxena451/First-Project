@@ -1,0 +1,76 @@
+#include<iostream>
+using namespace std;
+
+class complex
+{
+private:
+
+int real;
+int com;
+
+public:
+
+complex(int r=0,int c=0)
+{
+real=r;
+com=c;
+}
+
+void display()
+{
+if(com>=0)
+cout<<real<<"+"<<com<<"i";
+if(com<0)
+    cout<<real<<com<<"i";
+}
+
+complex operator+(complex x)
+{
+    complex temp;
+    temp.real=real+x.real;
+    temp.com=com+x.com;
+    return temp;
+}
+
+/*complex add(complex c1,complex c2)
+{
+
+c1.real=c1.real+c2.real;
+c1.com=c1.com+c2.com;
+return c1;
+
+}*/
+
+complex operator-(complex y)
+{
+
+    complex temp;
+    temp.real=real-y.real;
+    temp.com=com-y.com;
+    return temp;
+}
+
+/*complex sub(complex c1,complex c2)
+{
+    c1.real=c2.real-c1.real;
+    c1.com=c2.com-c1.com;
+    return c1;
+}*/
+
+
+};
+
+int main()
+{
+
+complex c1(3,7);
+complex c2(6,8);
+complex c3;
+c3=c1+c2;
+c3.display();
+c3=c1-c2;
+cout<<"\n";
+c3.display();
+
+return 0;
+}
